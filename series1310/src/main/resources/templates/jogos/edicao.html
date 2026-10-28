@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Edição</title>
+		<link rel="stylesheet" href="/css/estilo.css">
+	</head>
+	<body>
+		<form action="/paginas/jogos/editar" method="post" th:object="${jogo}">
+			<input type="hidden" th:field="*{id}">
+			
+			<p>
+				<label for="nome">Nome</label>
+				<input type="text" th:field="*{nome}">
+				<span th:errors="*{nome}"></span>
+			</p>
+			<p>
+				<label for="distribuidora">Distribuidora</label>
+				<input type="text" th:field="*{distribuidora}">
+				<span th:errors="*{distribuidora}"></span>
+			</p>
+			<p>
+				<label for="anoLancamento">Ano de Lançamento</label>
+				<input type="number" th:field="*{anoLancamento}">
+				<span th:errors="*{anoLancamento}"></span>
+			</p>
+			<p>
+				<label for="plataforma">Plataforma</label>
+				<input type="text" th:field="*{plataforma}">
+				<span th:errors="*{plataforma}"></span>
+			</p>
+			<button type="submit">Salvar alterações</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Novo Jogo</title>
+	<link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+	<h1>Novo Jogo</h1>
+	<form method="post" action="/paginas/jogos/novo" th:object="${jogo}">
+		<p>
+			<label>Nome</label>
+			<input type="text" th:field="*{nome}">
+			<span th:errors="*{nome}"></span>
+		</p>
+		<p>
+			<label>Distribuidora</label>
+			<input type="text" th:field="*{distribuidora}">
+			<span th:errors="*{distribuidora}"></span>
+		</p>
+		<p>
+			<label>Ano Lançamento</label>
+			<input type="text" th:field="*{anoLancamento}">
+			<span th:errors="*{anoLancamento}"></span>
+		</p>
+		<p>
+			<label>Plataforma</label>
+			<input type="text" th:field="*{plataforma}">
+			<span th:errors="*{plataforma}"></span>
+		</p>
+		<button type="submit">Cadastrar</button>
+	</form>
+</body>
+</html>

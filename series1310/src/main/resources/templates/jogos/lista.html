@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Jogos</title>
+	</head>
+	<body>
+		<h1>Jogos Cadastrados</h1>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Distribuidora</th>
+					<th>Ano</th>
+					<th>Plataforma</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="jogo : ${jogos}">
+					<td th:text="${jogo.nome}"></td>
+					<td th:text="${jogo.distribuidora}"></td>
+					<td th:text="${jogo.anoLancamento}"></td>
+					<td th:text="${jogo.plataforma}"></td>
+					<td><a th:href="@{/paginas/jogos/{id}/editar(id=${jogo.id})}">Editar</a>
+						<form th:action="@{|/paginas/jogos/${jogo.id}/remover|}" method="post" style="display: inline; margin-left: 10px;">
+							<button type="submit">Remover</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+    </body>
+</html>
